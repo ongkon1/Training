@@ -58,7 +58,7 @@ class EvaluateExamTranscript
         $settings = $this->promptsFor($transcript);
 
         if (! $settings) {
-            $transcript->markFailed('No teacher has saved both a system prompt and an evaluation prompt.');
+            $transcript->markFailed('No trainer has saved both a system prompt and an evaluation prompt.');
 
             return;
         }

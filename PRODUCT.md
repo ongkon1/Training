@@ -1,8 +1,8 @@
-# Training Monitoring
+# Training Simulator
 
 ## Product Overview
 
-Training Monitoring is a training administration and performance-monitoring platform for trainers and students. It brings student records, training results, spoken assessments, feedback, and performance reporting into one shared system, giving education teams a consistent place to manage assessment activity and giving students direct access to their own progress.
+Training Simulator is a training administration and performance-monitoring platform for trainers and students. It brings student records, training results, spoken assessments, feedback, and performance reporting into one shared system, giving education teams a consistent place to manage assessment activity and giving students direct access to their own progress.
 
 The product addresses the fragmentation and manual effort involved in maintaining student details, recording marks, calculating grades, reviewing performance, and following up on completed trainings. Trainers can manage student accounts, maintain written or manually scored results, monitor class performance, and use configurable AI-assisted evaluation to produce feedback. Students can review their results, see strengths and areas that need improvement, and take voice-based trainings through the platform.
 
@@ -127,4 +127,4 @@ Search, filtering, pagination, automated evaluation, and summarized dashboards a
 
 ## Business Outcome
 
-Training Monitoring turns student administration and assessment activity into a controlled, visible, and reusable workflow. By combining student records, result management, performance reporting, voice-based trainings, and AI-assisted feedback, it reduces manual effort, accelerates assessment processing, improves consistency, and gives trainers and students clearer insight into performance. The overall result is a more scalable assessment operation with better traceability, fewer avoidable errors, and more timely support for student improvement.
+Training Simulator turns student administration and assessment activity into a controlled, visible, and reusable workflow. By combining student records, result management, performance reporting, voice-based trainings, and AI-assisted feedback, it reduces manual effort, accelerates assessment processing, improves consistency, and gives trainers and students clearer insight into performance. The overall result is a more scalable assessment operation with better traceability, fewer avoidable errors, and more timely support for student improvement.

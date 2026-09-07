@@ -164,7 +164,7 @@ class OpenAiEvaluator
             'Marks obtained: '.$result->marks_obtained.' out of '.$result->full_marks,
             'Percentage: '.$result->percentage.'%',
             'Grade: '.($result->grade ?: 'N/A'),
-            'Teacher remarks: '.($result->remarks ?: 'None'),
+            'Trainer remarks: '.($result->remarks ?: 'None'),
         ];
 
         return "Exam result data:\n".implode("\n", $lines);

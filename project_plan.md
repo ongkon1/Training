@@ -1,4 +1,4 @@
-# Government Exam Monitoring — Project Plan
+# Training Simulator — Project Plan
 
 A role-based exam result management system built with Laravel and MySQL.
 
@@ -118,7 +118,7 @@ These are settled — do not re-litigate them during implementation.
 `.env` values to set:
 
 ```env
-APP_NAME="Government Exam Monitoring"
+APP_NAME="Training Simulator"
 APP_URL=http://localhost:8000
 
 DB_CONNECTION=mysql

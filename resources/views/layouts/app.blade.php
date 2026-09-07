@@ -24,7 +24,7 @@
                 <button class="btn dropdown-toggle d-flex align-items-center gap-2" data-bs-toggle="dropdown"
                         aria-expanded="false">
                     <span class="d-none d-sm-inline fw-medium">{{ auth()->user()->name }}</span>
-                    <span class="role-chip text-uppercase">{{ auth()->user()->role }}</span>
+                    <span class="role-chip text-uppercase">{{ auth()->user()->isTeacher() ? 'Trainer' : auth()->user()->role }}</span>
                     <span class="avatar avatar-sm">{{ auth()->user()->initials() }}</span>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end shadow">
