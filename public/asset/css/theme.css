@@ -358,21 +358,21 @@ dt {
 
 .user-chip .btn {
     background: transparent;
-    border: 1px solid var(--pia-border);
+    border: 1px solid rgba(255, 255, 255, 0.72);
     border-radius: 999px;
-    color: var(--pia-text);
+    color: #fff;
     padding: 5px 10px 5px 14px;
 }
 
 .user-chip .btn::after {
     margin-left: 2px;
-    color: var(--pia-muted);
+    color: rgba(255, 255, 255, 0.85);
 }
 
 .role-chip {
-    background: rgba(7, 84, 155, 0.12);
+    background: var(--pia-accent);
     border-radius: 999px;
-    color: var(--pia-accent-2);
+    color: var(--pia-violet);
     font-size: 0.65rem;
     font-weight: 700;
     letter-spacing: 0.6px;
