@@ -46,7 +46,7 @@ class StudentController extends Controller
         ]);
 
         return redirect()->route('teacher.students.index')
-            ->with('success', 'Student created successfully.');
+            ->with('success', 'Trainee created successfully.');
     }
 
     public function show(User $student): View
@@ -78,7 +78,7 @@ class StudentController extends Controller
         $student->update($data);
 
         return redirect()->route('teacher.students.index')
-            ->with('success', 'Student updated successfully.');
+            ->with('success', 'Trainee updated successfully.');
     }
 
     public function destroy(User $student): RedirectResponse
@@ -88,7 +88,7 @@ class StudentController extends Controller
         $student->delete();
 
         return redirect()->route('teacher.students.index')
-            ->with('success', 'Student deleted successfully.');
+            ->with('success', 'Trainee deleted successfully.');
     }
 
     /**

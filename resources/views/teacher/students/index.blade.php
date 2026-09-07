@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
-@section('title', 'Students')
-@section('heading', 'Students')
+@section('title', 'Trainees')
+@section('heading', 'Trainees')
 
 @section('actions')
     <a href="{{ route('teacher.students.create') }}" class="btn btn-primary">
-        <i class="bi bi-plus-lg me-1"></i>Add Student
+        <i class="bi bi-plus-lg me-1"></i>Add Trainee
     </a>
 @endsection
 
@@ -71,7 +71,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="6" class="text-center text-muted py-4">No students found.</td>
+                            <td colspan="6" class="text-center text-muted py-4">No trainees found.</td>
                         </tr>
                     @endforelse
                     </tbody>

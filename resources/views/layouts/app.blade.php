@@ -72,7 +72,7 @@
                         </a>
                         <a class="nav-link {{ request()->routeIs('teacher.students.*') ? 'active' : '' }}"
                            href="{{ route('teacher.students.index') }}">
-                            <i class="bi bi-people me-2"></i>Students
+                            <i class="bi bi-people me-2"></i>Trainees
                         </a>
                         <a class="nav-link {{ request()->routeIs('teacher.results.*') ? 'active' : '' }}"
                            href="{{ route('teacher.results.index') }}">
@@ -91,14 +91,6 @@
                             <i class="bi bi-gear me-2"></i>Settings
                         </a>
                     @else
-                        <a class="nav-link {{ request()->routeIs('student.dashboard') ? 'active' : '' }}"
-                           href="{{ route('student.dashboard') }}">
-                            <i class="bi bi-speedometer2 me-2"></i>Dashboard
-                        </a>
-                        <a class="nav-link {{ request()->routeIs('student.results.*') ? 'active' : '' }}"
-                           href="{{ route('student.results.index') }}">
-                            <i class="bi bi-journal-text me-2"></i>My Results
-                        </a>
                         <a class="nav-link {{ request()->routeIs('student.voice-exam') ? 'active' : '' }}"
                            href="{{ route('student.voice-exam') }}">
                             <i class="bi bi-mic me-2"></i>Voice Training

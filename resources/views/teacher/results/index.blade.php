@@ -26,7 +26,7 @@
             <form method="GET" class="row g-2 mb-3">
                 <div class="col-md-4">
                     <select name="student_id" class="form-select">
-                        <option value="">All students</option>
+                        <option value="">All trainees</option>
                         @foreach ($students as $student)
                             <option value="{{ $student->id }}" @selected($studentId === $student->id)>
                                 {{ $student->name }}{{ $student->roll_number ? " ({$student->roll_number})" : '' }}
@@ -56,7 +56,7 @@
                 <table class="table table-hover align-middle mb-0">
                     <thead class="table-light">
                     <tr>
-                        <th>Student</th>
+                        <th>Trainee</th>
                         <th>Training</th>
                         <th>Subject</th>
                         <th>Date</th>

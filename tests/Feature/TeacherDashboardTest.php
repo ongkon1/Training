@@ -51,7 +51,7 @@ class TeacherDashboardTest extends TestCase
         $this->actingAs($this->teacher)
             ->get(route('teacher.dashboard'))
             ->assertOk()
-            ->assertSee('Total Students')
+            ->assertSee('Total Trainees')
             ->assertSee('Average Result')
             // Two students, mean of 90 and 70.
             ->assertSee('>2<', false)
@@ -136,7 +136,7 @@ class TeacherDashboardTest extends TestCase
             ->get(route('teacher.dashboard'))
             ->assertOk()
             ->assertSee('No results recorded yet')
-            ->assertSee('No students yet');
+            ->assertSee('No trainees yet');
     }
 
     public function test_recent_students_show_their_latest_result(): void

@@ -3,9 +3,9 @@
 
 <div class="row g-3">
     <div class="col-md-6">
-        <label for="student_id" class="form-label">Student <span class="text-danger">*</span></label>
+        <label for="student_id" class="form-label">Trainee <span class="text-danger">*</span></label>
         <select id="student_id" name="student_id" class="form-select @error('student_id') is-invalid @enderror" required>
-            <option value="">— Select a student —</option>
+            <option value="">— Select a trainee —</option>
             @foreach ($students as $student)
                 <option value="{{ $student->id }}"
                     @selected(old('student_id', $result?->student_id ?? $selectedStudent) == $student->id)>
@@ -59,7 +59,7 @@
         <label for="remarks" class="form-label">Remarks</label>
         <textarea id="remarks" name="remarks" rows="3"
                   class="form-control @error('remarks') is-invalid @enderror"
-                  placeholder="Optional note about the student's performance">{{ old('remarks', $result?->remarks) }}</textarea>
+                  placeholder="Optional note about the trainee's performance">{{ old('remarks', $result?->remarks) }}</textarea>
         @error('remarks')<div class="invalid-feedback">{{ $message }}</div>@enderror
     </div>
 </div>

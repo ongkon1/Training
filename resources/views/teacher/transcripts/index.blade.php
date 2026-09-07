@@ -25,8 +25,8 @@
             <i class="bi bi-exclamation-triangle mt-1"></i>
             <div>
                 <strong>{{ $unmatchedCount }} test{{ $unmatchedCount === 1 ? '' : 's' }} could not be matched
-                    to a student by phone number.</strong>
-                Check that the student's phone number on their profile matches the number they called from.
+                    to a trainee by phone number.</strong>
+                Check that the trainee's phone number on their profile matches the number they called from.
             </div>
         </div>
     @endif
@@ -36,7 +36,7 @@
             <table class="table table-hover align-middle mb-0">
                 <thead class="table-light">
                 <tr>
-                    <th>Student</th>
+                    <th>Trainee</th>
                     <th>Taken</th>
                     <th style="min-width: 180px;">Result</th>
                     <th></th>

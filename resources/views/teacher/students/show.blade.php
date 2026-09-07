@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Student Details')
+@section('title', 'Trainee Details')
 @section('heading', $student->name)
 
 @section('actions')

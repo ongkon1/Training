@@ -89,84 +89,6 @@
             width: 120px !important;
         }
 
-        /* Live camera, shown in place of the student's details during a call. */
-        .webcall-camera {
-            border-radius: var(--pia-radius-sm);
-            overflow: hidden;
-            position: relative;
-        }
-
-        .webcall-camera video {
-            background: #000;
-            display: block;
-            height: auto;
-            width: 100%;
-            /* Mirror it, the way people expect to see themselves. */
-            transform: scaleX(-1);
-        }
-
-        /* The avatar moves onto the video while the call runs, inset bottom-right.
-           The vendor sets `position: relative` inline on the container, so every
-           positioning declaration here has to be !important to outrank it. */
-        .webcall-camera #avatar-container {
-            bottom: 14px !important;
-            height: 88px !important;
-            left: auto !important;
-            margin: 0 !important;
-            position: absolute !important;
-            right: 14px !important;
-            top: auto !important;
-            width: 88px !important;
-            z-index: 2;
-        }
-
-        .webcall-camera #spcl-avatar {
-            border: 2px solid rgba(255, 255, 255, 0.85);
-            border-radius: 50%;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4) !important;
-            height: 88px !important;
-            margin: 0 !important;
-            width: 88px !important;
-        }
-
-        /* The vendor's speaking rings are drawn around a 120px avatar, so at this size
-           they spill past the video edge and get clipped. */
-        .webcall-camera .spcl-audio-ring {
-            display: none !important;
-        }
-
-        .webcall-camera-label {
-            align-items: center;
-            background: rgba(0, 0, 0, 0.55);
-            border-radius: 999px;
-            color: #fff;
-            display: flex;
-            font-size: 0.75rem;
-            gap: 6px;
-            left: 10px;
-            padding: 4px 10px;
-            position: absolute;
-            top: 10px;
-        }
-
-        .webcall-camera-label::before {
-            background: #ef4444;
-            border-radius: 50%;
-            content: "";
-            height: 8px;
-            width: 8px;
-            animation: webcall-rec 1.4s ease-in-out infinite;
-        }
-
-        @keyframes webcall-rec {
-            0%, 100% { opacity: 1; }
-            50%      { opacity: 0.25; }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .webcall-camera-label::before { animation: none; }
-        }
-
         /* Match the loading state and the no-phone notice to the panel. */
         .voice-exam-card #webcall-placeholder {
             background-color: rgba(255, 255, 255, 0.12) !important;
@@ -188,7 +110,7 @@
 
 @section('content')
     <div class="row g-3">
-        <div class="col-lg-5">
+        <div class="col-lg-6 mx-auto">
             <div class="card shadow-sm voice-exam-card">
                 <div class="card-header"><strong>Start a Training</strong></div>
                 <div class="card-body">
@@ -220,7 +142,7 @@
             </div>
         </div>
 
-        <div class="col-lg-7">
+        <div class="col-lg-7 d-none" aria-hidden="true">
             <div class="card shadow-sm">
                 <div class="card-header bg-white"><strong>My Voice Trainings</strong></div>
                 <div class="table-responsive">

@@ -56,7 +56,7 @@ class TranscriptController extends Controller
 
         return match ($transcript->status) {
             ExamTranscript::STATUS_EVALUATED => back()->with('success', 'Evaluation completed.'),
-            ExamTranscript::STATUS_UNMATCHED => back()->with('error', 'Still no student matches this call.'),
+            ExamTranscript::STATUS_UNMATCHED => back()->with('error', 'Still no trainee matches this call.'),
             default => back()->with('error', 'Evaluation failed again: '.$transcript->failure_reason),
         };
     }

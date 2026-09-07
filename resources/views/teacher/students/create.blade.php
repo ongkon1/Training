@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Add Student')
-@section('heading', 'Add Student')
+@section('title', 'Add Trainee')
+@section('heading', 'Add Trainee')
 
 @section('actions')
     <a href="{{ route('teacher.students.index') }}" class="btn btn-outline-secondary">
@@ -20,7 +20,7 @@
 
                 <div class="mt-4">
                     <button type="submit" class="btn btn-primary">
-                        <i class="bi bi-check-lg me-1"></i>Create Student
+                        <i class="bi bi-check-lg me-1"></i>Create Trainee
                     </button>
                     <a href="{{ route('teacher.students.index') }}" class="btn btn-link">Cancel</a>
                 </div>

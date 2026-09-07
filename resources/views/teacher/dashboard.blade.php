@@ -2,7 +2,7 @@
 
 @section('title', 'Dashboard')
 @section('heading', 'Dashboard')
-@section('subheading', 'Overview of your students and their results')
+@section('subheading', 'Overview of your trainees and their results')
 
 @section('actions')
     <form method="GET" class="d-flex align-items-center gap-2">
@@ -29,7 +29,7 @@
                 <div class="card-body d-flex align-items-center gap-3">
                     <div class="stat-icon"><i class="bi bi-people-fill"></i></div>
                     <div class="flex-grow-1">
-                        <div class="stat-label">Total Students</div>
+                        <div class="stat-label">Total Trainees</div>
                         <div class="stat-value">{{ number_format($students['total']) }}</div>
                         <div class="d-flex align-items-center gap-2">
                             <span class="trend trend--{{ $students['trend']['up'] ? 'up' : 'down' }}">
@@ -40,7 +40,7 @@
                         </div>
                     </div>
                     <svg class="sparkline d-none d-sm-block" viewBox="0 0 240 58" preserveAspectRatio="none"
-                         role="img" aria-label="Student growth trend">
+                         role="img" aria-label="Trainee growth trend">
                         <defs>
                             <linearGradient id="spark-violet" x1="0" x2="0" y1="0" y2="1">
                                 <stop offset="0%" stop-color="#6c63ff" stop-opacity=".28"/>
@@ -127,7 +127,7 @@
                                 </svg>
                                 <div class="donut-centre">
                                     <div class="donut-value">{{ number_format($gradedCount) }}</div>
-                                    <div class="donut-label">Students</div>
+                                    <div class="donut-label">Trainees</div>
                                 </div>
                             </div>
 
@@ -137,7 +137,7 @@
                                         <span class="legend-dot" style="background: {{ $band['colour'] }}"></span>
                                         <span class="legend-name">{{ $band['label'] }} ({{ $band['range'] }})</span>
                                         <span class="legend-value">
-                                            {{ $band['count'] }} {{ Str::plural('Student', $band['count']) }}
+                                            {{ $band['count'] }} {{ Str::plural('Trainee', $band['count']) }}
                                         </span>
                                     </li>
                                 @endforeach
@@ -147,7 +147,7 @@
                 </div>
                 <div class="card-footer text-muted small">
                     <i class="bi bi-info-circle me-1"></i>
-                    Each student is placed by their average across all recorded results.
+                    Each trainee is placed by their average across all recorded results.
                 </div>
             </div>
         </div>
@@ -165,7 +165,7 @@
                         @php($peak = max(array_column($bands, 'count')) ?: 1)
                         <div class="bar-chart" style="--peak: {{ $peak }}">
                             <div class="bar-axis">
-                                <span class="bar-axis-title">Students</span>
+                                <span class="bar-axis-title">Trainees</span>
                                 @foreach ([1, .75, .5, .25, 0] as $mark)
                                     <span class="bar-tick">{{ round($peak * $mark) }}</span>
                                 @endforeach
@@ -190,9 +190,9 @@
         </div>
     </div>
 
-    {{-- Recent students --}}
+    {{-- Recent trainees --}}
     <div class="card">
-        <div class="card-header"><strong>Recent Students</strong></div>
+        <div class="card-header"><strong>Recent Trainees</strong></div>
         <div class="table-responsive">
             <table class="table table-hover align-middle mb-0">
                 <thead class="table-light">
@@ -249,14 +249,14 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="5" class="text-center text-muted py-4">No students yet.</td>
+                        <td colspan="5" class="text-center text-muted py-4">No trainees yet.</td>
                     </tr>
                 @endforelse
                 </tbody>
             </table>
         </div>
         <div class="card-footer text-center">
-            <a href="{{ route('teacher.students.index') }}" class="fw-medium">View all students</a>
+            <a href="{{ route('teacher.students.index') }}" class="fw-medium">View all trainees</a>
         </div>
     </div>
 @endsection

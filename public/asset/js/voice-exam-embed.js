@@ -15,7 +15,7 @@
     var POLL_INTERVAL = 100;
     var MAX_ATTEMPTS = 150; // ~15 seconds
     var CALL_LABEL_FROM = 'Start Call';
-    var CALL_LABEL_TO = 'Start Exam';
+    var CALL_LABEL_TO = 'Start Training';
 
     var container = document.getElementById('webcall-widget');
 
@@ -180,13 +180,9 @@
 
             post(sessionUrl(), callId ? { call_id: callId } : {});
 
-            // Swap the student's details for a live camera preview.
-            startCamera();
         }
 
         function finish() {
-            stopCamera();
-
             if (registered) {
                 post(sessionEndUrl(), callId ? { call_id: callId } : {});
             }
@@ -227,18 +223,15 @@
     }
 
     /* ---------------------------------------------------------------------
-     * Avatar and camera
+     * Avatar and identity
      *
      * The avatar is centred at the top of the panel on its own — the name and number
      * fields below it are filled from the profile and hidden. When a call starts the
-     * avatar moves onto the live camera preview, inset in its corner.
+     * remains visible throughout the audio call.
      * ------------------------------------------------------------------- */
 
     var identityRow = null;
     var avatarEl = null;
-    var cameraWrap = null;
-    var cameraVideo = null;
-    var cameraStream = null;
 
     function buildIdentityRow(popup) {
         var avatar = popup.querySelector('#avatar-container');
@@ -254,83 +247,6 @@
         avatar.parentNode.insertBefore(identityRow, avatar);
         identityRow.appendChild(avatar);
 
-        // Camera preview lives alongside, hidden until a call starts.
-        cameraWrap = document.createElement('div');
-        cameraWrap.className = 'webcall-camera';
-        cameraWrap.style.display = 'none';
-
-        cameraVideo = document.createElement('video');
-        cameraVideo.setAttribute('autoplay', '');
-        cameraVideo.setAttribute('playsinline', '');
-        cameraVideo.muted = true;
-
-        var label = document.createElement('span');
-        label.className = 'webcall-camera-label';
-        label.textContent = 'Recording';
-
-        cameraWrap.appendChild(cameraVideo);
-        cameraWrap.appendChild(label);
-        identityRow.parentNode.insertBefore(cameraWrap, identityRow.nextSibling);
-    }
-
-    function startCamera() {
-        if (!cameraWrap || cameraStream) {
-            return;
-        }
-
-        // Not available over plain HTTP, and absent in some embedded browsers.
-        if (!navigator.mediaDevices || typeof navigator.mediaDevices.getUserMedia !== 'function') {
-            console.warn('[voice-exam] camera unavailable — a secure context (HTTPS) is required.');
-
-            return;
-        }
-
-        // Audio is left alone: the call already owns the microphone.
-        navigator.mediaDevices.getUserMedia({ video: true, audio: false })
-            .then(function (stream) {
-                cameraStream = stream;
-                cameraVideo.srcObject = stream;
-
-                if (identityRow) {
-                    identityRow.style.display = 'none';
-                }
-
-                // The avatar rides along, inset over the bottom-right of the video, so the
-                // assistant stays on screen while the student is being filmed.
-                if (avatarEl) {
-                    cameraWrap.appendChild(avatarEl);
-                }
-
-                cameraWrap.style.display = '';
-            })
-            .catch(function (error) {
-                // Permission refused or no device — the student info simply stays put.
-                console.warn('[voice-exam] camera not started', error);
-            });
-    }
-
-    function stopCamera() {
-        if (cameraStream) {
-            cameraStream.getTracks().forEach(function (track) { track.stop(); });
-            cameraStream = null;
-        }
-
-        if (cameraVideo) {
-            cameraVideo.srcObject = null;
-        }
-
-        if (cameraWrap) {
-            cameraWrap.style.display = 'none';
-        }
-
-        // Put the avatar back at the head of the identity row.
-        if (identityRow) {
-            if (avatarEl) {
-                identityRow.insertBefore(avatarEl, identityRow.firstChild);
-            }
-
-            identityRow.style.display = '';
-        }
     }
 
     /**

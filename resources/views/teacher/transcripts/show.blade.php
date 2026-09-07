@@ -30,8 +30,8 @@
         <div class="alert alert-warning d-flex align-items-start gap-2">
             <i class="bi bi-exclamation-triangle mt-1"></i>
             <div>
-                No student has the phone number <strong>{{ $transcript->phone }}</strong>. Add it to the right
-                student's profile — future calls from that number will be matched automatically.
+                No trainee has the phone number <strong>{{ $transcript->phone }}</strong>. Add it to the right
+                trainee's profile — future calls from that number will be matched automatically.
             </div>
         </div>
     @endif
