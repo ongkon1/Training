@@ -40,13 +40,13 @@
                             <div class="col-md-6">
                                 <label class="form-label">Roll number</label>
                                 <input type="text" class="form-control" value="{{ $student->roll_number ?: '—' }}" disabled>
-                                <div class="form-text">Set by your teacher.</div>
+                                <div class="form-text">Set by your trainer.</div>
                             </div>
 
                             <div class="col-md-6">
                                 <label class="form-label">Class</label>
                                 <input type="text" class="form-control" value="{{ $student->class_name ?: '—' }}" disabled>
-                                <div class="form-text">Set by your teacher.</div>
+                                <div class="form-text">Set by your trainer.</div>
                             </div>
 
                             <div class="col-md-6">

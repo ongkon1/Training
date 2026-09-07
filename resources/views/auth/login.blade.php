@@ -64,7 +64,7 @@
             </div>
 
             <p class="text-center text-muted small mt-3 mb-0">
-                Accounts are created by teachers. Contact your teacher if you cannot sign in.
+                Accounts are created by trainers. Contact your trainer if you cannot sign in.
             </p>
         </div>
     </div>

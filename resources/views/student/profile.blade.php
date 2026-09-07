@@ -31,7 +31,7 @@
                 <div class="card-footer bg-white text-muted small">
                     <i class="bi bi-info-circle me-1"></i>
                     You can update your own contact details. Your roll number and class are set by your
-                    teacher — contact them if either needs correcting.
+                    trainer — contact them if either needs correcting.
                 </div>
             </div>
         </div>

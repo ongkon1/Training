@@ -39,7 +39,7 @@
 
         <div class="col-lg-7">
             <div class="card shadow-sm mb-3">
-                <div class="card-header bg-white"><strong>Teacher's Remarks</strong></div>
+                <div class="card-header bg-white"><strong>Trainer's Remarks</strong></div>
                 <div class="card-body">
                     {{ $result->remarks ?: 'No remarks were added for this result.' }}
                 </div>
@@ -56,7 +56,7 @@
                     @if ($result->isEvaluated())
                         {{ $result->ai_feedback }}
                     @else
-                        <span class="text-muted">Your teacher has not generated AI feedback for this result yet.</span>
+                        <span class="text-muted">Your trainer has not generated AI feedback for this result yet.</span>
                     @endif
                 </div>
             </div>
