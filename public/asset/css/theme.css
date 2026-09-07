@@ -1,28 +1,22 @@
-/*
- * Theme adapted from powerinai.com: their pink -> violet neon accent on light surfaces.
- *
- * Accent tokens are taken straight from that site's :root:
- *   --accent #ff3c7e  --accent2 #6c63ff  --primary #18192b  --border-radius 18px
- * Their #e5e7eb / #cbd5e1 greys carry the light surfaces, and body text uses their
- * dark --primary so the palette stays recognisable.
- */
+/* BRAC Bank-inspired theme: confident navy, clean white surfaces, and a warm yellow
+   action colour. The existing Bootstrap markup and application behaviour remain intact. */
 
 :root {
-    --pia-bg: #f5f6fa;
+    --pia-bg: #f4f7fb;
     --pia-surface: #ffffff;
-    --pia-surface-alt: #f0f1f7;
-    --pia-border: #e5e7eb;
-    --pia-accent: #ff3c7e;
-    --pia-accent-2: #6c63ff;
-    --pia-violet: #7c3aed;
-    --pia-text: #18192b;
-    --pia-muted: #5f6480;
-    --pia-radius: 18px;
-    --pia-radius-sm: 12px;
-    --pia-transition: 0.3s all cubic-bezier(0.4, 0, 0.2, 1);
-    --pia-gradient: linear-gradient(90deg, var(--pia-accent), var(--pia-accent-2));
-    --pia-gradient-hover: linear-gradient(90deg, var(--pia-accent-2), var(--pia-accent));
-    --pia-glow: 0 6px 18px rgba(108, 99, 255, 0.28);
+    --pia-surface-alt: #eef3f8;
+    --pia-border: #d9e2ec;
+    --pia-accent: #f2c400;
+    --pia-accent-2: #07549b;
+    --pia-violet: #0b2d57;
+    --pia-text: #102a43;
+    --pia-muted: #5d7185;
+    --pia-radius: 8px;
+    --pia-radius-sm: 5px;
+    --pia-transition: 0.2s all ease;
+    --pia-gradient: linear-gradient(90deg, #f2c400, #f7d64a);
+    --pia-gradient-hover: linear-gradient(90deg, #e1b400, #f2c400);
+    --pia-glow: 0 5px 14px rgba(7, 84, 155, 0.18);
 }
 
 [data-bs-theme="light"] {
@@ -34,16 +28,16 @@
     --bs-border-color: var(--pia-border);
     --bs-border-radius: var(--pia-radius-sm);
     --bs-link-color: var(--pia-accent-2);
-    --bs-link-hover-color: var(--pia-accent);
+    --bs-link-hover-color: #043b70;
     --bs-primary: var(--pia-accent-2);
-    --bs-primary-rgb: 108, 99, 255;
+    --bs-primary-rgb: 7, 84, 155;
 }
 
 body {
     background: var(--pia-bg);
     color: var(--pia-text);
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-        Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    letter-spacing: 0.01em;
 }
 
 /* Existing markup leans on these utilities for panel surfaces; route them through
@@ -64,16 +58,17 @@ body {
 /* ---------------------------------------------------------------- chrome --- */
 
 .navbar {
-    background: var(--pia-surface) !important;
-    border-bottom: 1px solid var(--pia-border);
-    box-shadow: 0 1px 3px rgba(24, 25, 43, 0.06);
-    padding: 14px 0;
+    background: var(--pia-violet) !important;
+    border-bottom: 4px solid var(--pia-accent);
+    box-shadow: 0 2px 10px rgba(11, 45, 87, 0.16);
+    padding: 11px 0;
 }
 
 .navbar-brand {
     font-weight: 700;
     letter-spacing: 0.5px;
-    color: var(--pia-text) !important;
+    color: #fff !important;
+    font-size: 1.08rem;
 }
 
 .navbar-brand .bi {
@@ -83,24 +78,26 @@ body {
 .sidebar {
     background-color: var(--pia-surface) !important;
     border-right: 1px solid var(--pia-border) !important;
+    padding-top: 22px !important;
 }
 
 .sidebar .nav-link {
     color: var(--pia-muted) !important;
-    border-radius: var(--pia-radius-sm);
-    margin-bottom: 4px;
+    border-radius: 3px;
+    margin-bottom: 6px;
+    font-weight: 600;
     transition: var(--pia-transition);
 }
 
 .sidebar .nav-link:hover {
-    background-color: rgba(108, 99, 255, 0.1) !important;
+    background-color: #e8f1fa !important;
     color: var(--pia-accent-2) !important;
 }
 
 .sidebar .nav-link.active {
-    background: var(--pia-gradient) !important;
-    color: #fff !important;
-    box-shadow: var(--pia-glow);
+    background: var(--pia-accent) !important;
+    color: var(--pia-violet) !important;
+    box-shadow: none;
 }
 
 /* --------------------------------------------------------------- surfaces --- */
@@ -109,7 +106,7 @@ body {
     background-color: var(--pia-surface);
     border: 1px solid var(--pia-border);
     border-radius: var(--pia-radius);
-    box-shadow: 0 2px 10px rgba(24, 25, 43, 0.05);
+    box-shadow: 0 2px 8px rgba(16, 42, 67, 0.06);
     color: var(--pia-text);
     transition: var(--pia-transition);
 }
@@ -135,7 +132,7 @@ body {
     --bs-table-bg: transparent;
     --bs-table-color: var(--pia-text);
     --bs-table-border-color: var(--pia-border);
-    --bs-table-hover-bg: rgba(108, 99, 255, 0.07);
+    --bs-table-hover-bg: rgba(7, 84, 155, 0.07);
     --bs-table-hover-color: var(--pia-text);
     margin-bottom: 0;
 }
@@ -165,7 +162,7 @@ body {
 .form-select:focus {
     background-color: var(--pia-surface);
     border-color: var(--pia-accent-2);
-    box-shadow: 0 0 0 0.2rem rgba(108, 99, 255, 0.18);
+    box-shadow: 0 0 0 0.2rem rgba(7, 84, 155, 0.18);
     color: var(--pia-text);
 }
 
@@ -202,21 +199,21 @@ body {
 
 .btn-primary,
 .btn-success {
-    background: var(--pia-gradient);
+    background: var(--pia-accent-2);
     border: none;
     color: #fff;
     font-weight: 700;
     letter-spacing: 0.5px;
-    box-shadow: var(--pia-glow);
+    box-shadow: 0 3px 8px rgba(7, 84, 155, 0.2);
 }
 
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-success:hover,
 .btn-success:focus {
-    background: var(--pia-gradient-hover);
+    background: #043b70;
     color: #fff;
-    box-shadow: 0 6px 18px rgba(255, 60, 126, 0.3);
+    box-shadow: 0 4px 12px rgba(7, 84, 155, 0.25);
 }
 
 .btn-outline-primary {
@@ -242,13 +239,13 @@ body {
 }
 
 .btn-outline-success {
-    border-color: var(--pia-accent);
-    color: var(--pia-accent);
+    border-color: #1b8a5a;
+    color: #1b8a5a;
 }
 
 .btn-outline-success:hover {
-    background: var(--pia-accent);
-    border-color: var(--pia-accent);
+    background: #1b8a5a;
+    border-color: #1b8a5a;
     color: #fff;
 }
 
@@ -285,9 +282,9 @@ body {
 }
 
 .alert-danger {
-    background-color: rgba(255, 60, 126, 0.1);
-    border-color: rgba(255, 60, 126, 0.35);
-    color: #be123c;
+    background-color: rgba(190, 35, 35, 0.08);
+    border-color: rgba(190, 35, 35, 0.3);
+    color: #a32020;
 }
 
 .alert-warning {
@@ -319,7 +316,7 @@ body {
 }
 
 .page-link:hover {
-    background-color: rgba(108, 99, 255, 0.1);
+    background-color: rgba(7, 84, 155, 0.1);
     border-color: var(--pia-accent-2);
     color: var(--pia-accent-2);
 }
@@ -373,7 +370,7 @@ dt {
 }
 
 .role-chip {
-    background: rgba(108, 99, 255, 0.12);
+    background: rgba(7, 84, 155, 0.12);
     border-radius: 999px;
     color: var(--pia-accent-2);
     font-size: 0.65rem;
@@ -437,7 +434,7 @@ dt {
 }
 
 .stat-card--violet {
-    background: linear-gradient(120deg, rgba(108, 99, 255, 0.07), transparent 60%);
+    background: linear-gradient(120deg, rgba(7, 84, 155, 0.08), transparent 60%);
 }
 
 .stat-card--green {
@@ -456,7 +453,7 @@ dt {
 }
 
 .stat-card--violet .stat-icon {
-    background: rgba(108, 99, 255, 0.14);
+    background: rgba(7, 84, 155, 0.14);
     color: var(--pia-accent-2);
 }
 
@@ -725,7 +722,7 @@ details > summary:hover {
 
 /* Headline treatment borrowed from the source site's gradient text. */
 .gradient-text {
-    background: linear-gradient(270deg, #4f56ff, #ff4980);
+    background: linear-gradient(270deg, #07549b, #f2c400);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
