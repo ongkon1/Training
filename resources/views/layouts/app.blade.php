@@ -101,7 +101,7 @@
                         </a>
                         <a class="nav-link {{ request()->routeIs('student.voice-exam') ? 'active' : '' }}"
                            href="{{ route('student.voice-exam') }}">
-                            <i class="bi bi-mic me-2"></i>Voice Exam
+                            <i class="bi bi-mic me-2"></i>Voice Training
                         </a>
                         <a class="nav-link {{ request()->routeIs('student.profile', 'student.profile.*') ? 'active' : '' }}"
                            href="{{ route('student.profile') }}">

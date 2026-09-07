@@ -17,7 +17,7 @@
     </div>
 
     <div class="col-md-6">
-        <label for="exam_name" class="form-label">Exam name <span class="text-danger">*</span></label>
+        <label for="exam_name" class="form-label">Training name <span class="text-danger">*</span></label>
         <input type="text" id="exam_name" name="exam_name" value="{{ old('exam_name', $result?->exam_name) }}"
                class="form-control @error('exam_name') is-invalid @enderror" placeholder="e.g. Midterm 2026" required>
         @error('exam_name')<div class="invalid-feedback">{{ $message }}</div>@enderror
@@ -31,7 +31,7 @@
     </div>
 
     <div class="col-md-6">
-        <label for="exam_date" class="form-label">Exam date</label>
+        <label for="exam_date" class="form-label">Training date</label>
         <input type="date" id="exam_date" name="exam_date"
                value="{{ old('exam_date', $result?->exam_date?->toDateString()) }}"
                class="form-control @error('exam_date') is-invalid @enderror">

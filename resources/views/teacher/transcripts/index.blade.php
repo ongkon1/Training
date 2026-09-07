@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Voice Test Results')
-@section('heading', 'Voice Test Results')
-@section('subheading', 'Spoken exams taken over the call system')
+@section('title', 'Voice Training Results')
+@section('heading', 'Voice Training Results')
+@section('subheading', 'Spoken trainings taken over the call system')
 
 @section('actions')
     <form method="GET" class="d-flex align-items-center gap-2">

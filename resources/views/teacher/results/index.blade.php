@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Results')
-@section('heading', 'Exam Results')
+@section('heading', 'Training Results')
 
 @section('actions')
     <a href="{{ route('teacher.results.create') }}" class="btn btn-primary">
@@ -57,7 +57,7 @@
                     <thead class="table-light">
                     <tr>
                         <th>Student</th>
-                        <th>Exam</th>
+                        <th>Training</th>
                         <th>Subject</th>
                         <th>Date</th>
                         <th class="text-end">Marks</th>

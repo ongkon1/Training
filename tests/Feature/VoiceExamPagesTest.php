@@ -23,7 +23,7 @@ class VoiceExamPagesTest extends TestCase
         $this->actingAs($student)
             ->get(route('student.voice-exam'))
             ->assertOk()
-            ->assertSee('Start an Exam')
+            ->assertSee('Start a Training')
             ->assertSee('Physics')
             ->assertDontSee('Astronomy');
     }

@@ -79,7 +79,7 @@
                     <label for="system_prompt" class="form-label">System prompt</label>
                     <textarea id="system_prompt" name="system_prompt" rows="5"
                               class="form-control @error('system_prompt') is-invalid @enderror"
-                              placeholder="e.g. You are an experienced examiner writing concise, encouraging feedback for secondary school students.">{{ old('system_prompt', $settings->system_prompt) }}</textarea>
+                              placeholder="e.g. You are an experienced training evaluator writing concise, encouraging feedback for secondary school students.">{{ old('system_prompt', $settings->system_prompt) }}</textarea>
                     @error('system_prompt')<div class="invalid-feedback">{{ $message }}</div>@enderror
                     <div class="form-text">Sets the role and tone the model adopts.</div>
                 </div>
@@ -88,7 +88,7 @@
                     <label for="evaluation_prompt" class="form-label">Evaluation prompt</label>
                     <textarea id="evaluation_prompt" name="evaluation_prompt" rows="5"
                               class="form-control @error('evaluation_prompt') is-invalid @enderror"
-                              placeholder="e.g. Review the exam result below and give the student three specific suggestions for improvement.">{{ old('evaluation_prompt', $settings->evaluation_prompt) }}</textarea>
+                              placeholder="e.g. Review the training result below and give the student three specific suggestions for improvement.">{{ old('evaluation_prompt', $settings->evaluation_prompt) }}</textarea>
                     @error('evaluation_prompt')<div class="invalid-feedback">{{ $message }}</div>@enderror
                     <div class="form-text">
                         Sent alongside each student's result data, and used as the system prompt when a

@@ -16,9 +16,9 @@
                 <div class="card-header bg-white"><strong>Result</strong></div>
                 <div class="card-body">
                     <dl class="row mb-0 small">
-                        <dt class="col-5">Exam</dt><dd class="col-7">{{ $result->exam_name }}</dd>
+                        <dt class="col-5">Training</dt><dd class="col-7">{{ $result->exam_name }}</dd>
                         <dt class="col-5">Subject</dt><dd class="col-7">{{ $result->subject }}</dd>
-                        <dt class="col-5">Exam date</dt>
+                        <dt class="col-5">Training date</dt>
                         <dd class="col-7">{{ $result->exam_date?->toFormattedDateString() ?: '—' }}</dd>
                         <dt class="col-5">Marks obtained</dt>
                         <dd class="col-7">{{ $result->marks_obtained }} out of {{ $result->full_marks }}</dd>

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Voice Exam')
-@section('heading', 'Voice Exam')
+@section('title', 'Voice Training')
+@section('heading', 'Voice Training')
 
 @push('styles')
     <style>
@@ -190,7 +190,7 @@
     <div class="row g-3">
         <div class="col-lg-5">
             <div class="card shadow-sm voice-exam-card">
-                <div class="card-header"><strong>Start an Exam</strong></div>
+                <div class="card-header"><strong>Start a Training</strong></div>
                 <div class="card-body">
                     {{-- The Speaklar widget is relocated into this container by voice-exam-embed.js.
                          The name and number it needs come from these data attributes, so they are
@@ -206,7 +206,7 @@
                         @if (blank($student->phone))
                             <div class="alert alert-warning mb-0">
                                 <i class="bi bi-exclamation-triangle me-1"></i>
-                                You have no phone number saved, so a voice exam cannot be matched back to
+                                You have no phone number saved, so a voice training session cannot be matched back to
                                 you — <a href="{{ route('student.profile.edit') }}" class="alert-link">add one first</a>.
                             </div>
                         @else
@@ -222,7 +222,7 @@
 
         <div class="col-lg-7">
             <div class="card shadow-sm">
-                <div class="card-header bg-white"><strong>My Voice Exams</strong></div>
+                <div class="card-header bg-white"><strong>My Voice Trainings</strong></div>
                 <div class="table-responsive">
                     <table class="table table-hover align-middle mb-0">
                         <thead class="table-light">
@@ -258,7 +258,7 @@
                         @empty
                             <tr>
                                 <td colspan="4" class="text-center text-muted py-4">
-                                    You have not taken a voice exam yet.
+                                    You have not completed a voice training yet.
                                 </td>
                             </tr>
                         @endforelse

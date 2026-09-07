@@ -56,7 +56,7 @@
             <table class="table table-hover align-middle mb-0">
                 <thead class="table-light">
                 <tr>
-                    <th>Exam</th>
+                    <th>Training</th>
                     <th>Subject</th>
                     <th>Date</th>
                     <th class="text-end">Marks</th>
