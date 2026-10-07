@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Voice Training')
-@section('heading', 'Voice Training')
+@section('title', 'Language Training')
+@section('heading', 'Language Training')
 
 @push('styles')
     <style>
@@ -101,18 +101,26 @@
             color: #fff;
         }
     </style>
+    <link href="{{ asset('asset/css/voice-training.css') }}?v={{ filemtime(public_path('asset/css/voice-training.css')) }}" rel="stylesheet">
 @endpush
 
 @push('scripts')
     <script src="{{ asset('asset/js/webcall-bd%201.js') }}?v=1.0.0" defer></script>
-    <script src="{{ asset('asset/js/voice-exam-embed.js') }}?v=1.0.0" defer></script>
+    <script src="{{ asset('asset/js/voice-exam-embed.js') }}?v={{ filemtime(public_path('asset/js/voice-exam-embed.js')) }}" defer></script>
 @endpush
 
 @section('content')
     <div class="row g-3">
-        <div class="col-lg-6 mx-auto">
+        <div class="col-lg-6 mx-auto voice-training-shell">
             <div class="card shadow-sm voice-exam-card">
-                <div class="card-header"><strong>Start a Training</strong></div>
+                <div class="card-header voice-session-heading">
+                    <div>
+                        <span class="voice-session-eyebrow">VOICE SESSION</span>
+                        <strong>Meet your Trainner</strong>
+                        <p>Speak naturally. Build confidence with practice.</p>
+                    </div>
+                    <span class="voice-session-icon" aria-hidden="true"><i class="bi bi-headphones"></i></span>
+                </div>
                 <div class="card-body">
                     {{-- The Speaklar widget is relocated into this container by voice-exam-embed.js.
                          The name and number it needs come from these data attributes, so they are
@@ -128,7 +136,7 @@
                         @if (blank($student->phone))
                             <div class="alert alert-warning mb-0">
                                 <i class="bi bi-exclamation-triangle me-1"></i>
-                                You have no phone number saved, so a voice training session cannot be matched back to
+                                You have no phone number saved, so a language training session cannot be matched back to
                                 you — <a href="{{ route('student.profile.edit') }}" class="alert-link">add one first</a>.
                             </div>
                         @else
@@ -138,58 +146,15 @@
                             </div>
                         @endif
                     </div>
+                    @if (filled($student->phone))
+                        <div class="voice-session-note">
+                            <i class="bi bi-mic" aria-hidden="true"></i>
+                            <span>Find a quiet space and keep your microphone ready.</span>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>
 
-        <div class="col-lg-7 d-none" aria-hidden="true">
-            <div class="card shadow-sm">
-                <div class="card-header bg-white"><strong>My Voice Trainings</strong></div>
-                <div class="table-responsive">
-                    <table class="table table-hover align-middle mb-0">
-                        <thead class="table-light">
-                        <tr>
-                            <th>Subject</th>
-                            <th>Taken</th>
-                            <th class="text-center">Status</th>
-                            <th class="text-end">Result</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @forelse ($transcripts as $transcript)
-                            <tr>
-                                <td>{{ $transcript->subject ?: config('webcall.subject') }}</td>
-                                <td>{{ $transcript->created_at->diffForHumans() }}</td>
-                                <td class="text-center">
-                                    <span class="badge bg-{{ $transcript->statusVariant() }}">
-                                        {{ ucfirst($transcript->status) }}
-                                    </span>
-                                </td>
-                                <td class="text-end">
-                                    @if ($transcript->result)
-                                        <a href="{{ route('student.results.show', $transcript->result) }}"
-                                           class="btn btn-sm btn-outline-secondary">
-                                            {{ $transcript->result->marks_obtained }} /
-                                            {{ $transcript->result->full_marks }}
-                                        </a>
-                                    @else
-                                        <span class="text-muted">—</span>
-                                    @endif
-                                </td>
-                            </tr>
-                        @empty
-                            <tr>
-                                <td colspan="4" class="text-center text-muted py-4">
-                                    You have not completed a voice training yet.
-                                </td>
-                            </tr>
-                        @endforelse
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="mt-3">{{ $transcripts->links() }}</div>
-        </div>
     </div>
 @endsection

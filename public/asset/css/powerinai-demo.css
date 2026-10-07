@@ -5,15 +5,15 @@
  */
 
 :root {
-    --pa-ink: #14142b;
-    --pa-muted: #9aa0b4;
-    --pa-body: #6b7192;
+    --pa-ink: #333333;
+    --pa-muted: #626262;
+    --pa-body: #626262;
     --pa-card: #ffffff;
-    --pa-line: #eceef5;
-    --pa-indigo: #6c63ff;
-    --pa-violet: #8b5cf6;
-    --pa-pink: #ec3f7e;
-    --pa-cyan: #22d3ee;
+    --pa-line: #dddddd;
+    --pa-indigo: #008532;
+    --pa-violet: #006b28;
+    --pa-pink: #008532;
+    --pa-cyan: #00a63c;
     --pa-online: #22c55e;
 }
 
@@ -25,7 +25,7 @@ html, body {
 }
 
 body {
-    background: #fbfbfe;
+    background: #f5f5f5;
     color: var(--pa-ink);
     font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -178,7 +178,7 @@ body::before {
 }
 
 .pa-wave span {
-    background: linear-gradient(180deg, #c7d2fe, #a5b4fc);
+    background: linear-gradient(180deg, #b8dcc5, #82bd98);
     border-radius: 4px;
     display: block;
     height: var(--h, 20%);
@@ -203,7 +203,7 @@ body::before {
 
 /* Dotted orbit */
 .pa-ring-dotted {
-    border: 2px dotted #d9dcf5;
+    border: 2px dotted #bdd9c7;
     border-radius: 50%;
     inset: 8px;
     position: absolute;
@@ -211,7 +211,7 @@ body::before {
 
 /* Diffuse halo behind the button */
 .pa-ring-glow {
-    background: radial-gradient(circle, rgba(199, 210, 254, 0.55), rgba(199, 210, 254, 0) 68%);
+    background: radial-gradient(circle, rgba(0, 133, 50, 0.55), rgba(0, 133, 50, 0) 68%);
     border-radius: 50%;
     inset: 20px;
     position: absolute;
@@ -222,7 +222,7 @@ body::before {
     background: #fff;
     border: 0;
     border-radius: 50%;
-    box-shadow: 0 18px 40px -14px rgba(99, 102, 241, 0.45), 0 2px 6px rgba(20, 20, 43, 0.06);
+    box-shadow: 0 18px 40px -14px rgba(0, 133, 50, 0.45), 0 2px 6px rgba(20, 20, 43, 0.06);
     cursor: pointer;
     display: flex;
     height: 132px;
@@ -247,7 +247,7 @@ body::before {
 
 /* Expanding pulse, only while listening */
 .pa-pulse {
-    border: 2px solid rgba(139, 92, 246, 0.5);
+    border: 2px solid rgba(0, 133, 50, 0.5);
     border-radius: 50%;
     inset: 34px;
     opacity: 0;
@@ -313,8 +313,8 @@ body::before {
 
 .pa-input:hover,
 .pa-input:focus-visible {
-    border-color: #cdd2f0;
-    box-shadow: 0 10px 26px -14px rgba(99, 102, 241, 0.5);
+    border-color: #a9cfb7;
+    box-shadow: 0 10px 26px -14px rgba(0, 133, 50, 0.5);
     outline: none;
 }
 
@@ -341,3 +341,16 @@ body::before {
         animation: none;
     }
 }
+
+/* BANBEIS portal palette, preserving the demo's existing controls. */
+body { font-family: "Noto Sans Bengali", "Segoe UI", Arial, sans-serif; border-top: 6px solid #008532; }
+body::before { background: none; pointer-events: none; }
+.pa-card { border-color: #ddd; border-radius: 4px; border-top: 4px solid #008532; box-shadow: 0 2px 8px rgba(0,0,0,.05); }
+.pa-avatar { background: #006b28; border-radius: 4px; }
+.pa-card-title { color: #006b28; }
+.pa-menu:focus-visible { outline: 2px solid #008532; outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+.pa-mic svg stop { stop-color: #008532; }

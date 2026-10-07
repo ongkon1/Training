@@ -6,6 +6,7 @@ use App\Http\Controllers\Student\ProfileController;
 use App\Http\Controllers\Student\CallSessionController;
 use App\Http\Controllers\Student\ResultController as StudentResultController;
 use App\Http\Controllers\Student\VoiceExamController;
+use App\Http\Controllers\Student\TrainingHistoryController;
 use App\Http\Controllers\Teacher\DashboardController as TeacherDashboardController;
 use App\Http\Controllers\Teacher\EvaluationController;
 use App\Http\Controllers\Teacher\ResultController;
@@ -64,6 +65,8 @@ Route::middleware(['auth', 'role:student'])
         Route::get('results', [StudentResultController::class, 'index'])->name('results.index');
         Route::get('results/{result}', [StudentResultController::class, 'show'])->name('results.show');
         Route::get('voice-exam', VoiceExamController::class)->name('voice-exam');
+        Route::view('chat-training', 'student.chat-training')->name('chat-training');
+        Route::get('training-history', TrainingHistoryController::class)->name('training-history');
         Route::post('voice-exam/sessions', [CallSessionController::class, 'store'])->name('voice-exam.sessions.store');
         Route::post('voice-exam/sessions/end', [CallSessionController::class, 'end'])->name('voice-exam.sessions.end');
         Route::get('profile', [ProfileController::class, 'show'])->name('profile');

@@ -6,24 +6,21 @@
     <title>Login &middot; {{ config('app.name') }}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-    <link href="{{ asset('asset/css/theme.css') }}" rel="stylesheet">
-    <style>
-        /* A soft version of the source site's hero glow behind the sign-in card. */
-        body::before {
-            content: "";
-            position: fixed;
-            inset: 0;
-            background:
-                radial-gradient(60% 50% at 20% 15%, rgba(108, 99, 255, 0.12), transparent 70%),
-                radial-gradient(50% 45% at 85% 85%, rgba(255, 60, 126, 0.1), transparent 70%);
-            pointer-events: none;
-        }
-    </style>
+    <link href="{{ asset('asset/css/theme.css') }}?v={{ filemtime(public_path('asset/css/theme.css')) }}" rel="stylesheet">
 </head>
-<body>
-<div class="container">
+<body class="auth-page">
+<div class="container auth-shell">
     <div class="row justify-content-center align-items-center" style="min-height: 100vh;">
-        <div class="col-md-5">
+        <div class="col-lg-6 d-none d-lg-block auth-intro">
+            <div class="auth-mark"><i class="bi bi-mortarboard-fill" aria-hidden="true"></i></div>
+            <div class="auth-eyebrow">Your learning workspace</div>
+            <h2>Build confidence.<br>See your progress.</h2>
+            <p>A shared space for training, assessments, and practical feedback.</p>
+            <div class="auth-feature"><i class="bi bi-mic" aria-hidden="true"></i><span>Practice through language training</span></div>
+            <div class="auth-feature"><i class="bi bi-graph-up-arrow" aria-hidden="true"></i><span>Review results and track progress</span></div>
+            <div class="auth-feature"><i class="bi bi-chat-square-text" aria-hidden="true"></i><span>Learn from personalized feedback</span></div>
+        </div>
+        <div class="col-md-8 col-lg-5 offset-lg-1 auth-panel">
             <div class="text-center mb-4">
                 <i class="bi bi-mortarboard-fill fs-1" style="color: var(--pia-accent);"></i>
                 <h1 class="h4 mt-2 gradient-text">{{ config('app.name') }}</h1>

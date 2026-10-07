@@ -7,7 +7,7 @@
     <title>@yield('title', 'Dashboard') &middot; {{ config('app.name') }}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-    <link href="{{ asset('asset/css/theme.css') }}" rel="stylesheet">
+    <link href="{{ asset('asset/css/theme.css') }}?v={{ filemtime(public_path('asset/css/theme.css')) }}" rel="stylesheet">
     <style>
         .sidebar { min-height: calc(100vh - 56px); }
     </style>
@@ -17,7 +17,8 @@
 <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
         <a class="navbar-brand" href="{{ url('/') }}">
-            <i class="bi bi-mortarboard-fill me-1"></i>{{ config('app.name') }}
+            <i class="bi bi-mortarboard-fill me-1" aria-hidden="true"></i>
+            <span class="brand-copy">{{ config('app.name') }}<small>Learning &amp; assessment workspace</small></span>
         </a>
         @auth
             <div class="dropdown user-chip">
@@ -64,6 +65,7 @@
     <div class="row">
         @auth
             <aside class="col-lg-2 col-md-3 sidebar p-3">
+                <div class="nav-caption">Workspace</div>
                 <nav class="nav flex-column">
                     @if (auth()->user()->isTeacher())
                         <a class="nav-link {{ request()->routeIs('teacher.dashboard') ? 'active' : '' }}"
@@ -93,7 +95,17 @@
                     @else
                         <a class="nav-link {{ request()->routeIs('student.voice-exam') ? 'active' : '' }}"
                            href="{{ route('student.voice-exam') }}">
-                            <i class="bi bi-mic me-2"></i>Voice Training
+                            <i class="bi bi-mic me-2"></i>Language Training
+                        </a>
+                        <a class="nav-link {{ request()->routeIs('student.chat-training') ? 'active' : '' }}"
+                           href="{{ route('student.chat-training') }}"
+                           @if (request()->routeIs('student.chat-training')) aria-current="page" @endif>
+                            <i class="bi bi-chat-dots me-2" aria-hidden="true"></i>Chat Training
+                        </a>
+                        <a class="nav-link {{ request()->routeIs('student.training-history') ? 'active' : '' }}"
+                           href="{{ route('student.training-history') }}"
+                           @if (request()->routeIs('student.training-history')) aria-current="page" @endif>
+                            <i class="bi bi-clock-history me-2" aria-hidden="true"></i>Training History
                         </a>
                         <a class="nav-link {{ request()->routeIs('student.profile', 'student.profile.*') ? 'active' : '' }}"
                            href="{{ route('student.profile') }}">

@@ -93,7 +93,7 @@ class PaginationTest extends TestCase
             ->assertSee('<ul class="pagination', false);
 
         $this->actingAs($student)
-            ->get(route('student.voice-exam'))
+            ->get(route('student.training-history'))
             ->assertOk()
             ->assertSee('<ul class="pagination', false);
     }

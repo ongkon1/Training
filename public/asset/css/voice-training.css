@@ -1,0 +1,117 @@
+/* Voice session presentation only; vendor controls and state classes are preserved. */
+.voice-training-shell { width: 100%; max-width: 620px; }
+.voice-training-shell .card.voice-exam-card {
+    border: 1px solid #dce9e1;
+    border-radius: 24px;
+    min-width: 0;
+    box-shadow: 0 16px 48px rgba(29, 68, 43, .07);
+}
+.voice-training-shell .card.voice-exam-card .voice-session-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 26px 32px;
+    border-radius: 24px 24px 0 0;
+    border-bottom: 1px solid #edf3ef;
+}
+.voice-session-eyebrow { display: block; color: #006b28; font-size: .68rem; font-weight: 700; letter-spacing: 1.8px; margin-bottom: 8px; }
+.voice-training-shell .card.voice-exam-card .voice-session-heading strong { font-size: 1.25rem; letter-spacing: -.4px; line-height: 1.4; }
+.voice-training-shell .card.voice-exam-card .voice-session-heading strong::before { content: none; }
+.voice-session-heading p { margin: 7px 0 0; font-size: .85rem; color: #5e7065; line-height: 1.6; font-weight: 400; }
+.voice-session-icon { display: grid; place-items: center; width: 48px; height: 48px; flex: 0 0 auto; background: #edf7f1; border: 1px solid #dceee2; border-radius: 15px; font-size: 1.45rem; color: #008532; }
+.voice-training-shell .card.voice-exam-card .card-body { padding: 16px 28px 24px; }
+.voice-training-shell #webcall-widget #spcl-popup.webcall-embedded { padding: 0 !important; }
+.voice-training-shell #webcall-widget .webcall-identity {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 26px;
+    min-height: 244px;
+    margin: 0 0 18px;
+    padding: 42px 12px;
+    border-radius: 18px;
+    background: radial-gradient(ellipse at center, #e7f4ec 0%, #f5faf7 48%, #fff 76%);
+    position: relative;
+}
+/* Static wave shapes are decoration, not a microphone activity indicator. */
+.voice-training-shell .webcall-identity::before,
+.voice-training-shell .webcall-identity::after {
+    content: '';
+    flex: 0 1 64px;
+    height: 58px;
+    background: repeating-linear-gradient(90deg, #96c7a8 0 3px, transparent 3px 8px);
+    clip-path: polygon(0 44%, 12% 36%, 25% 24%, 38% 8%, 50% 0, 62% 12%, 75% 28%, 88% 38%, 100% 44%, 100% 56%, 88% 62%, 75% 72%, 62% 88%, 50% 100%, 38% 92%, 25% 76%, 12% 64%, 0 56%);
+    opacity: .7;
+    pointer-events: none;
+}
+.voice-training-shell #webcall-widget .webcall-identity #avatar-container { width: 128px !important; height: 128px !important; }
+.voice-training-shell #webcall-widget .webcall-identity #spcl-avatar {
+    width: 128px !important;
+    height: 128px !important;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    box-shadow: 0 0 0 12px rgba(255,255,255,.65), 0 12px 30px rgba(0,107,40,.12) !important;
+}
+.voice-training-shell #webcall-widget .spcl-call-controls {
+    gap: 12px;
+    margin-top: 0 !important;
+    padding: 14px;
+    background: #f5f8f6;
+    border: 1px solid #e7eee9;
+    border-radius: 18px;
+    align-items: center;
+}
+.voice-training-shell #webcall-widget #spcl-mic-toggle {
+    width: 54px !important;
+    height: 54px;
+    flex: 0 0 54px;
+    margin-right: 0 !important;
+    padding: 12px !important;
+    border: 1px solid #d9e6dd !important;
+    border-radius: 13px !important;
+    box-shadow: 0 2px 4px rgba(30,69,43,.04);
+}
+/* Keep the vendor's inline mute color and icon changes visible. */
+.voice-training-shell #webcall-widget #spcl-call-button {
+    flex: 1 1 auto;
+    min-width: 0;
+    min-height: 54px;
+    border-radius: 13px;
+    background: #008532 !important;
+    box-shadow: 0 5px 12px rgba(0,133,50,.16);
+    transition: background-color .18s ease, box-shadow .18s ease;
+    font-family: inherit;
+    font-size: .98rem;
+    gap: 10px;
+}
+.voice-training-shell #webcall-widget #spcl-call-button:hover { background: #006b28 !important; box-shadow: 0 6px 16px rgba(0,133,50,.22); }
+.voice-training-shell #webcall-widget #spcl-call-button.spcl-end-call { background: #fff0f0 !important; color: #a32020 !important; border-color: #e8b9b9; box-shadow: none; }
+.voice-training-shell #webcall-widget #spcl-call-button.spcl-end-call:hover { background: #ffe4e4 !important; }
+.voice-training-shell #webcall-widget #spcl-call-status { padding: 12px 16px; border-radius: 10px; background: #f5faf7; border: 1px solid #e0eee5; font-size: .86rem; font-weight: 500; }
+.voice-session-note { display: flex; align-items: flex-start; justify-content: center; gap: 8px; margin-top: 20px; font-size: .77rem; line-height: 1.7; color: #5e7065; text-align: center; padding: 0 8px; }
+.voice-session-note .bi { color: #008532; flex-shrink: 0; }
+.voice-training-shell #webcall-widget button:focus-visible { outline: 3px solid #006b28; outline-offset: 4px; }
+@media (max-width: 575.98px) {
+    .voice-training-shell .card.voice-exam-card .voice-session-heading { padding: 22px; gap: 12px; }
+    .voice-session-icon { width: 40px; height: 40px; border-radius: 12px; font-size: 1.2rem; }
+    .voice-training-shell .card.voice-exam-card .voice-session-heading strong { font-size: 1.13rem; }
+    .voice-training-shell .card.voice-exam-card .card-body { padding: 12px 16px 22px; }
+    .voice-training-shell #webcall-widget .webcall-identity { gap: 18px; min-height: 212px; }
+    .voice-training-shell .webcall-identity::before, .voice-training-shell .webcall-identity::after { flex-basis: 40px; height: 44px; }
+    .voice-training-shell #webcall-widget .spcl-call-controls { padding: 10px; gap: 10px; }
+    .voice-training-shell #webcall-widget #spcl-mic-toggle { width: 48px !important; flex-basis: 48px; }
+    .voice-training-shell #webcall-widget #spcl-call-button { font-size: .88rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .voice-training-shell *, .voice-training-shell *::before, .voice-training-shell *::after { animation: none !important; transition: none !important; }
+}
+
+/* Actual student history below the training widget. */
+.training-history-shell { max-width: 1040px; margin-top: 12px; }
+.training-attempt-count { display: inline-flex; align-items: center; gap: 9px; border: 1px solid #dceee2; background: #edf7f1; color: #006b28; border-radius: 10px; padding: 9px 13px; font-size: .85rem; }
+.training-history-score { color: #006b28; font-weight: 700; text-decoration: none; font-variant-numeric: tabular-nums; }
+.training-history-score:hover { color: #004e1d; text-decoration: underline; }
+.training-history time { font-size: .85rem; }
+.training-history .card-footer nav > div { margin-bottom: 0; }

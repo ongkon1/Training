@@ -15,7 +15,7 @@
     var POLL_INTERVAL = 100;
     var MAX_ATTEMPTS = 150; // ~15 seconds
     var CALL_LABEL_FROM = 'Start Call';
-    var CALL_LABEL_TO = 'Start Training';
+    var CALL_LABEL_TO = 'Meet your Trainner';
 
     var container = document.getElementById('webcall-widget');
 
@@ -309,6 +309,15 @@
         // The floating launcher and the close button belong to the popup's old life.
         hide(document.getElementById(PREFIX + '-toggle'));
         hide(el('close-call'));
+
+        // Hide the vendor attribution row, including its label and linked logo.
+        var brandingLogo = popup.querySelector('#' + PREFIX + '-powered-by');
+        var brandingLink = brandingLogo && brandingLogo.closest('a');
+        var brandingRow = brandingLink && brandingLink.parentElement.parentElement;
+
+        if (brandingRow && brandingRow !== popup && popup.contains(brandingRow)) {
+            hide(brandingRow);
+        }
 
         // Speaklar handles the call, so the language stays pinned to Bengali and the
         // language picker is not offered. The English branch would use a different provider.

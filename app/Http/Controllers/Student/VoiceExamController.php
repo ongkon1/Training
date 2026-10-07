@@ -17,10 +17,6 @@ class VoiceExamController extends Controller
             // The call widget validates a website field before it will dial, so it is
             // filled with this app's host rather than shown to the student.
             'widgetWebsite' => $this->widgetWebsite(),
-            'transcripts' => $student->examTranscripts()
-                ->with('result')
-                ->latest()
-                ->paginate(10),
         ]);
     }
 

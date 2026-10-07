@@ -12,7 +12,7 @@ class VoiceExamPagesTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_student_sees_the_voice_exam_page_with_their_own_transcripts(): void
+    public function test_student_sees_the_voice_exam_page_without_the_history_table(): void
     {
         $student = User::factory()->student()->create(['phone' => '01766666666']);
         $other = User::factory()->student()->create(['phone' => '01755555555']);
@@ -23,8 +23,10 @@ class VoiceExamPagesTest extends TestCase
         $this->actingAs($student)
             ->get(route('student.voice-exam'))
             ->assertOk()
-            ->assertSee('Start a Training')
-            ->assertSee('Physics')
+            ->assertSee('Meet your Trainner')
+            ->assertDontSee('Physics')
+            ->assertDontSee('training-history-title', false)
+            ->assertSee(route('student.training-history'), false)
             ->assertDontSee('Astronomy');
     }
 

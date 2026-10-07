@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Voice Training Results')
-@section('heading', 'Voice Training Results')
+@section('title', 'Language Training Results')
+@section('heading', 'Language Training Results')
 @section('subheading', 'Spoken trainings taken over the call system')
 
 @section('actions')
